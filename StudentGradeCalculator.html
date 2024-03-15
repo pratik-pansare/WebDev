@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+  
+body {
+    background-color: #f0f8ff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+  
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff; 
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+}
+.form-button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff; 
+    color: #fff; 
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.form-button:hover {
+    background-color: #0056b3; 
+}
+input { 
+  margin: 10px 10px 10px; 
+} 
+.screen { 
+  flex: 1; 
+  padding: 50px; 
+} 
+.fshowdata { 
+  color:#333; 
+  font-size: 30px;
+  text-align: center;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); 
+  padding-top: 10px; 
+  padding-bottom: 10px; 
+} 
+</style>
+<body>
+    <div class="container" >
+      <h1>Student Grade Calculator</h1>
+      <div class="screen">
+        <div class="app">
+          <div class="form">
+            <input type="text" class="fform" placeholder="CHEMISTRY" id="chemistry">
+
+          </div>
+          <div class="form">
+            <input type="text" class="fform" placeholder="HINDI" id="hindi">
+            
+          </div>
+          <div class="form">
+            <input type="text" class="fform" placeholder="MATHS" id="maths">
+            
+          </div>
+          <div class="form">
+            <input type="text" class="fform" placeholder="PHYSICS" id="physics">
+            
+          </div>
+          <div> 
+            <input
+              type="button"
+              value="show Percentage"
+              class="form-button"
+              onclick="calculate()"
+            /> 
+          </div> 
+        </div>
+
+      </div>
+      <div class="fshowdata"><p id="showdata"></p></div>
+
+      </div>
+</body>
+<script>
+const calculate = ()=> {
+    let chem=document.querySelector("#chemistry").value;
+    let hindi=document.querySelector("#hindi").value;
+    let phy=document.querySelector("#physics").value;
+    let maths=document.querySelector("#maths").value;
+
+    let grades=" ";
+    let totalgrades= parseFloat(chem)+ parseFloat(hindi)+parseFloat(phy)+parseFloat(maths);
+
+    let per=(totalgrades/400)*100;
+
+    if (per <= 100 && per >= 80) { 
+    grades = "A"; 
+  } else if (per <= 79 && per >= 60) { 
+    grades = "B"; 
+  } else if (per <= 59 && per >= 40) { 
+    grades = "C"; 
+  } else { 
+    grades = "F"; 
+  } 
+
+  if (per >= 39.5) { 
+      document.querySelector( 
+        "#showdata"
+      ).innerHTML =  
+        ` Out of 400 your total is  ${totalgrades}  
+        and percentage is ${per}%. <br>  
+        Your grade is ${grades}. You are Pass. `; 
+    } else { 
+      document.querySelector( 
+        "#showdata"
+      ).innerHTML =  
+        ` Out of 400 your total is  ${totalgrades}  
+        and percentage is ${per}%. <br>  
+        Your grade is ${grades}. You are Fail. `; 
+    } 
+}
+    </script>
+</html>

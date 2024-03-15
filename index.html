@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+body{
+	background-color:gray ;
+}
+.hero-text{
+	text-align:center;
+	position:absolute;
+	display:inline;
+	top:50%;
+	left:50%;
+	transform:translate(-50%,-50%);
+	color:white;
+	 
+}
+.hero-image{
+   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("bg.jpg");
+  
+	  background-size: cover;
+	  object-fit:contain;
+  
+	  height: 750px;
+  	position:relative;	
+	border-radius:50px;
+	background-position: center;
+  background-repeat: no-repeat;
+  border:15px solid crimson;
+  position: relative;
+}
+
+.button1{
+	font-size: 20px;
+	background-color: #000;
+	border:.5px solid crimson;
+	color:#fff;
+	padding:8px;
+	border-radius: 10px;
+	cursor:pointer;
+	margin:10px;
+}
+.button1 span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button1 span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button1:hover span {
+  padding-right: 25px;
+}
+
+.button1:hover span:after {
+  opacity:0.75;
+  right: 0;
+}
+
+.bottom{
+	padding:20px;
+	margin: 20px;
+	width:75%;
+	border:5px solid crimson;
+        position:absolute ; left:100px;right:100px;
+	background-color:#000;
+	border-radius:25px;
+}
+.button1:hover, .button1:focus {
+  background-color: #2980B9;
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown a:hover {background-color: #ddd;}
+
+.show {display: block;}
+</style>
+</head>
+<body>
+
+<div class="hero-image">
+<div class="hero-text">
+	
+	<p style="font-size:85px;text-shadow:2px 2px 4px #000000;color:white;text-shadow: 1px 1px 2px black, 0 0 25px red, 0 0 5px orange;">Hey, I'm </p>
+	<p style="font-size:100px;text-shadow:2px 2px 4px #000000;color:white;text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;">Pratik Pansare..</p>
+
+	<a href="file:///C:/Users/hp/Desktop/Pratik/WebD/SkillsNew.html" target="_blank">
+	<button class="button1" ><span>Skills and Education</span></button>
+	</a>
+	
+	<div class="dropdown" >
+	<a href="file:///C:/Users/hp/Desktop/Pratik/WebD/Assignments/Projects/List.html" target="_blank">
+		<button  class="button1"><span>My Projects</span></button>
+	</a>
+
+	<div id="myDropdown" class="dropdown-content">
+		<a href="file:///C:/Users/hp/Desktop/Pratik/WebD/Assignments/Forms/Forms.html">Sliding Login And Registration forms</a>
+		<a href="file:///C:/Users/hp/Desktop/Pratik/WebD/Assignments/Grade%20Calculator/StudentGradeCalculator.html">Student Grade Calculator</a>
+		<a href="file:///C:/Users/hp/Desktop/Pratik/WebD/Assignments/Navigation%20Bar/NavigationBar.html">Slide Down Navigation Bar</a>
+		<a href="file:///C:/Users/hp/Desktop/Pratik/WebD/Assignments/BMI%20calculator/BMICalculator.html">BMI Calculator</a>
+		<a href="file:///C:/Users/hp/Desktop/Pratik/WebD/Assignments/Task%20Tracker/TaskTracker.html">Task Tracker Project</a>
+		<a href="file:///C:/Users/hp/Desktop/Pratik/WebD/Assignments/Tip%20Calculator/TipCalculator.html">Tip Calculator</a>
+		<a href="file:///C:/Users/hp/Desktop/Pratik/WebD/Assignments/Pay%20Role%20Management/PayRoleManagement.html">Pay Role Management</a>
+		<a href="file:///C:/Users/hp/Desktop/Pratik/WebD/Assignments/MouseMoveParallaxeffeects/ParallaxEffects.html">Mousemove Parallax effects</a>
+		<a href="file:///C:/Users/hp/Desktop/Pratik/WebD/Assignments/TextToSpeechConverter/TextToSpeechConverter.html">Text to Speech Converter</a>
+		<a href="file:///C:/Users/hp/Desktop/Pratik/WebD/Assignments/AI%20Iage%20Generator/AiImageGenerator.html">AI Image Generator</a>
+		
+	  </div>
+	</div>
+</div>
+</div>
+
+
+<div class="bottom">
+	<h2 style="color:white;">About me:</h2>
+	<p style="color:white;">I am Pratik Pansare a student of 1st year at Indian Institute of Information Technology , Allahabad.
+	Curently I am pursuing  Bachelors of Technology in Information Technology.I am currently a web developer and am enhancing my development skills, I have keen interest in coding and also I am an enthusiast in Artificial Intelligence and Machine Learning. </p>
+	<p style="color:white;text-shadow: turquoise;">Click on the above buttons to know more about my education and the skills I have.</p>
+	</div>
+
+
+</body>
+<script>
+	function myFunction() {
+        document.getElementById("myDropdown").classList.toggle("show");
+    }
+
+    
+    window.onclick = function(event) {
+        if (!event.target.matches('.button1')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+            }
+        }
+    }
+	</script>
+</html>
+
+
+
