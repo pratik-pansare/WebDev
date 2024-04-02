@@ -3,56 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>List of Projects</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #34e89e, #0f3443);
+            background-attachment: fixed;
+        }
+
+        .List {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+        }
+
+        .List::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.5);
+            z-index: -1;
+            transform: rotate(30deg);
+        }
+
+        .List h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .List ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .List li {
+            margin-bottom: 15px;
+        }
+
+        .List a {
+            text-decoration: none;
+            color: #333;
+            transition: color 0.3s;
+            border-bottom: 1px solid #ccc;
+            display: block;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .List a:hover {
+            color: #007bff;
+            background-color: #f0f0f0;
+        }
+    </style>
 </head>
-<style>
-    .List {
-    max-width: 600px; /* Adjust the width as needed */
-    margin: 0 auto; /* Center the list horizontally */
-    padding: 20px; /* Add some padding around the list */
-    font-family: Arial, sans-serif; /* Use a common font */
-}
-
-.List h1 {
-    font-size: 24px; /* Set the font size for the heading */
-    margin-bottom: 20px; /* Add some space below the heading */
-}
-
-.List ul {
-    list-style-type: none; /* Remove default list bullets */
-    padding: 0; /* Remove default padding */
-}
-
-.List li {
-    margin-bottom: 10px; /* Add space between list items */
-}
-
-.List a {
-    text-decoration: none; /* Remove default underline */
-    color: #333; /* Set link color */
-    transition: color 0.3s; /* Add smooth color transition */
-}
-
-.List a:hover {
-    color: #007bff; /* Change link color on hover */
-}
-</style>
 <body>
     <div class="List">
-    <h1>This is the list of my Projects</h1>
-    <ol>
-        <li><a href="Forms.html">Sliding Login And Registration forms</a></li>
-        <li><a href="StudentGradeCalculator.html">Student Grade Calculator</a></li>
-        <li><a href="NavigationBar.html">Slide Down Navigation Bar</a></li>
-        <li><a href="BMICalculator.html">BMI Calculator</a></li>
-        <li><a href="TaskTracker.html">Task Tracker Project</a></li>
-        <li><a href="TipCalculator.html">Tip Calculator</a></li>
-        <li><a href="PayRoleManagement.html">Pay Role Management</a></li>
-        <li><a href="ParallaxEffects.html">Mouse Parallax effects</a></li>
-        <li><a href="TextToSpeechConverter.html">Text to speech Converter</a></li>
-        <li><a href="AiImageGenerator.html">AI image generetor</a></li>
-        <li><a href="Blog.html"><strong>Blog Page</strong></a></li>
-    </ol>
+        <h1>List of Projects</h1>
+        <ul>
+            <li><a href="Forms.html">Sliding Login And Registration forms</a></li>
+            <li><a href="StudentGradeCalculator.html">Student Grade Calculator</a></li>
+            <li><a href="NavigationBar.html">Slide Down Navigation Bar</a></li>
+            <li><a href="BMICalculator.html">BMI Calculator</a></li>
+            <li><a href="TaskTracker.html">Task Tracker Project</a></li>
+            <li><a href="TipCalculator.html">Tip Calculator</a></li>
+            <li><a href="PayRoleManagement.html">Pay Role Management</a></li>
+            <li><a href="ParallaxEffects.html">Mouse Parallax effects</a></li>
+            <li><a href="TextToSpeechConverter.html">Text to speech Converter</a></li>
+            <li><a href="AiImageGenerator.html">AI image generetor</a></li>
+            <li><a href="Blog.html"><strong>Blog Page</strong></a></li>
+        </ul>
     </div>
+    <script>
+        document.addEventListener("mousemove", parallax);
+        function parallax(e) {
+            this.querySelectorAll('.parallax').forEach(layer => {
+                const speed = layer.getAttribute('data-speed');
+
+                const x = (window.innerWidth - e.pageX * speed) / 100;
+                const y = (window.innerHeight - e.pageY * speed) / 100;
+
+                layer.style.transform = `translateX(${x}px) translateY(${y}px)`;
+            });
+        }
+    </script>
 </body>
 </html>
